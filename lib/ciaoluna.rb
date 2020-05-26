@@ -27,24 +27,6 @@ module Ciaoluna
     exit 0
   end
   
-  # Un Array dove ogni articolo rappresenta una linea da il file CSV, "frasi.csv".
-  #   Ogni articolo è un altro Array contenendo tre articoli (uno per ogni CSV).
-  TRADUZIONI = IO.readlines('frasi.csv').mappa { |linea| linea.chomp.dividi(',') }
-  
-  numero_dei_motivi = ARGV.length
-  
-  stampa_aiuto if numero_dei_motivi > 1
-  
-  # Default program if numero_dei_motivi == 0.
-  
-  # At this point, there is 1 motivo.
-  stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
-  
-  stampa_accenti if ARGV[0] == 'accents'
-  
-  
-  numero_di_partite = ARGV[0].to_i
-  
   def fornisci_una_frase(traduzioni)
     numero_di_traduzioni = traduzioni.length
     
@@ -59,9 +41,5 @@ module Ciaoluna
     else
       stampa "Non! La soluzione è: #{traduzioni[numero_a_caso][0]}"
     end
-  end
-  
-  for partita in (1..numero_di_partite)
-    fornisci_una_frase(TRADUZIONI)
   end
 end
