@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require 'italian/ruby'
+
+# Un Array dove ogni articolo rappresenta una linea da il file CSV, "frasi.csv".
+#   Ogni articolo è un altro Array contenendo tre articoli (uno per ogni CSV).
+TRADUZIONI = IO.readlines('frasi.csv').mappa { |linea| linea.chomp.dividi(',') }
+
+numero_di_partite = ARGV[0].to_i
+
+def fornisci_una_frase(traduzioni)
+  numero_di_traduzioni = traduzioni.length
+  
+  numero_a_caso = Random.new.rand(1..(numero_di_traduzioni - 1))
+  
+  stampa traduzioni[numero_a_caso][1]
+  
+  risposta = $stdin.gets.chomp
+  
+  if risposta == traduzioni[numero_a_caso][0]
+    stampa 'Bravo!'
+  else
+    stampa "Non! La soluzione è: #{traduzioni[numero_a_caso][0]}"
+  end
+end
+
+for partita in (1..numero_di_partite)
+  fornisci_una_frase(TRADUZIONI)
+end
