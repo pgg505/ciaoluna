@@ -10,7 +10,6 @@ numero_dei_motivi = ARGV.length
 
 Ciaoluna.stampa_aiuto if numero_dei_motivi > 1
 
-# 
 if numero_dei_motivi == 0
   for partita in (1..3)
     Ciaoluna.fornisci_una_frase(TRADUZIONI)
@@ -18,8 +17,8 @@ if numero_dei_motivi == 0
 end
 
 # At this point, there is 1 motivo.
-stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
+Ciaoluna.stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
 
-stampa_accenti if ARGV[0] == 'accents'
+Ciaoluna.stampa_accenti if ARGV[0] == 'accents'
 
 numero_di_partite = ARGV[0].to_i

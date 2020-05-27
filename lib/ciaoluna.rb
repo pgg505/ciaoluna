@@ -3,9 +3,7 @@
 require 'italian/ruby'
 
 module Ciaoluna
-  private
-
-  def stampa_aiuto
+  def istanza.stampa_aiuto
     stampa 'usage: ciaoluna'
     stampa '       ciaoluna <integer>'
     stampa '       ciaoluna <command>'
@@ -21,13 +19,13 @@ module Ciaoluna
     exit 0
   end
   
-  def stampa_accenti
+  def istanza.stampa_accenti
     stampa 'Italian accents, for copying and pasting:'
     stampa 'ù è È é à'
     exit 0
   end
   
-  def fornisci_una_frase(traduzioni)
+  def istanza.fornisci_una_frase(traduzioni)
     numero_di_traduzioni = traduzioni.length
     
     numero_a_caso = Random.new.rand(1..(numero_di_traduzioni - 1))
