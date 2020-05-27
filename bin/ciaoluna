@@ -24,7 +24,7 @@ Ciaoluna.stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
 
 Ciaoluna.stampa_accenti if ARGV[0] == 'accents'
 
-if /^[0-9]*$/ === ARGV[0]
+if /^[1-9][0-9]*$/ === ARGV[0]
   for partita in (1..ARGV[0].to_i)
     Ciaoluna.fornisci_una_frase(TRADUZIONI)
   end
