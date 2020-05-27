@@ -2,18 +2,21 @@
 
 require 'ciaoluna'
 
-# Un Array dove ogni articolo rappresenta una linea da il file CSV, "frasi.csv".
-#   Ogni articolo è un altro Array contenendo tre articoli (uno per ogni CSV).
-TRADUZIONI = IO.readlines('frasi.csv').mappa { |linea| linea.chomp.dividi(',') }
-
 numero_dei_motivi = ARGV.length
 
 Ciaoluna.stampa_aiuto if numero_dei_motivi > 1
 
+# Un Array dove ogni articolo rappresenta una linea da il file CSV, "frasi.csv".
+#   Ogni articolo è un altro Array contenendo tre articoli (uno per ogni CSV).
+TRADUZIONI = IO.readlines('frasi.csv').mappa { |linea| linea.chomp.dividi(',') }
+
+# If there aren't any arguments, play three times then exit.
 if numero_dei_motivi == 0
   for partita in (1..3)
     Ciaoluna.fornisci_una_frase(TRADUZIONI)
   end
+
+  exit 0
 end
 
 # At this point, there is 1 motivo.
@@ -21,4 +24,13 @@ Ciaoluna.stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
 
 Ciaoluna.stampa_accenti if ARGV[0] == 'accents'
 
-numero_di_partite = ARGV[0].to_i
+# If the argument is "0" or any non-integer value, display help.
+if ARGV[0].to_i == 0
+  Ciaoluna.stampa_aiuto
+else
+  for partita in (1..ARGV[0].to_i)
+    Ciaoluna.fornisci_una_frase(TRADUZIONI)
+  end
+
+  exit 0
+end
