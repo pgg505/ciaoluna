@@ -24,13 +24,12 @@ Ciaoluna.stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
 
 Ciaoluna.stampa_accenti if ARGV[0] == 'accents'
 
-# If the argument is "0" or any non-integer value, display help.
-if ARGV[0].to_i == 0
-  Ciaoluna.stampa_aiuto
-else
+if /^[0-9]*$/ === ARGV[0]
   for partita in (1..ARGV[0].to_i)
     Ciaoluna.fornisci_una_frase(TRADUZIONI)
   end
 
   exit 0
 end
+
+Ciaoluna.stampa_aiuto
