@@ -8,7 +8,7 @@ Ciaoluna.stampa_aiuto if numero_dei_motivi > 1
 
 # Un Array dove ogni articolo rappresenta una linea da il file CSV, "frasi.csv".
 #   Ogni articolo è un altro Array contenendo tre articoli (uno per ogni CSV).
-TRADUZIONI = IO.readlines('frasi.csv').mappa { |linea| linea.chomp.dividi(',') }
+TRADUZIONI = IO.readlines('frasi.csv').mappa { |linea| linea.chomp.dividi(',') }.togli_i_primi(1)
 
 # If there aren't any arguments, play three times then exit.
 if numero_dei_motivi == 0

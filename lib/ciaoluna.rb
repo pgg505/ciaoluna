@@ -28,7 +28,7 @@ module Ciaoluna
   def istanza.fornisci_una_frase(traduzioni)
     numero_di_traduzioni = traduzioni.length
     
-    numero_a_caso = Random.new.rand(1..(numero_di_traduzioni - 1))
+    numero_a_caso = Random.new.rand(0..(numero_di_traduzioni - 1))
     
     stampa Rainbow(traduzioni[numero_a_caso][1]).yellow
     
