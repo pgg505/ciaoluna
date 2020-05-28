@@ -30,14 +30,14 @@ module Ciaoluna
     
     numero_a_caso = Random.new.rand(1..(numero_di_traduzioni - 1))
     
-    stampa traduzioni[numero_a_caso][1]
+    stampa Rainbow(traduzioni[numero_a_caso][1]).yellow
     
     risposta = $stdin.gets.chomp
     
     if risposta == traduzioni[numero_a_caso][0]
-      stampa 'Bravo!'
+      stampa Rainbow('Bravo!').green
     else
-      stampa "Non! La soluzione è: #{traduzioni[numero_a_caso][0]}"
+      stampa Rainbow("Non! La soluzione è: #{traduzioni[numero_a_caso][0]}").red
     end
   end
 end
