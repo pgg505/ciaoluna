@@ -1,0 +1,21 @@
+require '../lib/ciaoluna.rb'
+
+describe 'suddividi_le_traduzioni_usando_punti' do
+  context 'con traduzioni in ordine casuale' do
+    it 'suddivide le traduzioni usando punti' do
+      traduzioni = [
+        ["Primo", "First", "3"],
+        ["Secondo", "Second", "1"],
+        ["Terzo", "Third", "2"]
+      ]
+
+      soluzione = [
+        ["Secondo", "Second", "1"],
+        ["Terzo", "Third", "2"],
+        ["Primo", "First", "3"]
+      ]
+
+      expect(Ciaoluna.suddividi_le_traduzioni_usando_punti(traduzioni)).to eq soluzione
+    end
+  end
+end

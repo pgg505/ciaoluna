@@ -40,4 +40,8 @@ module Ciaoluna
       stampa Rainbow("Non! La soluzione è: #{traduzioni[numero_a_caso][0]}").red
     end
   end
+
+  def istanza.suddividi_le_traduzioni_usando_punti(traduzioni)
+    traduzioni.ordina_per { |traduzione| traduzione[2] }
+  end
 end
