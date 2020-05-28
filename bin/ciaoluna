@@ -30,6 +30,8 @@ Ciaoluna.stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
 
 Ciaoluna.stampa_accenti if ARGV[0] == 'accents'
 
+Ciaoluna.stampa_versione if ['version', '-v', '--version'].include?(ARGV[0])
+
 if /^[1-9][0-9]*$/ === ARGV[0]
   stampa 'Vai!'
 

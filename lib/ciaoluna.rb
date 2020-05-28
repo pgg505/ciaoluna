@@ -13,15 +13,20 @@ module Ciaoluna
     stampa '`ciaoluna <integer>` plays the game with the specified number of rounds.'
     stampa
     stampa '`ciaoluna <command>` accepts one of the following commands:'
-    stampa '   help | -h | --help   Prints this help'
-    stampa '   accents              Prints the Italian accents, for copying into your answers'
-    stampa '   progress             Prints your progress'
+    stampa '   help | -h | --help         Prints this help'
+    stampa '   accents                    Prints the Italian accents, for copying into your answers'
+    stampa '   version | -v | --version   Prints current ciaoluna version'
     exit 0
   end
   
   def istanza.stampa_accenti
     stampa 'Italian accents, for copying and pasting:'
     stampa 'ù è È é à'
+    exit 0
+  end
+
+  def istanza.stampa_versione
+    stampa 'ciaoluna version 0.0.1'
     exit 0
   end
   
