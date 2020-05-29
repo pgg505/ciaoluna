@@ -6,6 +6,12 @@ numero_dei_motivi = ARGV.length
 
 Ciaoluna.stampa_aiuto if numero_dei_motivi > 1
 
+Ciaoluna.stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
+
+Ciaoluna.stampa_accenti if ARGV[0] == 'accents'
+
+Ciaoluna.stampa_versione if ['version', '-v', '--version'].include?(ARGV[0])
+
 frasi = File.expand_path('../../lib/frasi.csv', __FILE__)
 
 # Un Array dove ogni articolo rappresenta una linea da il file CSV, "frasi.csv".
@@ -24,13 +30,6 @@ if numero_dei_motivi == 0
 
   exit 0
 end
-
-# At this point, there is 1 motivo.
-Ciaoluna.stampa_aiuto if ['help', '-h', '--help'].include?(ARGV[0])
-
-Ciaoluna.stampa_accenti if ARGV[0] == 'accents'
-
-Ciaoluna.stampa_versione if ['version', '-v', '--version'].include?(ARGV[0])
 
 if /^[1-9][0-9]*$/ === ARGV[0]
   stampa 'Vai!'

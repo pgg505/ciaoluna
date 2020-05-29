@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.files = ['lib/ciaoluna.rb', 'lib/frasi.csv']
+  s.files = ['lib/ciaoluna.rb', 'lib/frasi.csv', 'ciaoluna.gemspec']
   s.name = 'ciaoluna'
   s.summary = 'A simple CLI tool for learning Italian phrases'
   s.version = '0.0.1'
