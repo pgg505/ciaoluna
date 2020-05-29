@@ -25,8 +25,13 @@ module Ciaoluna
     exit 0
   end
 
+  # Legge il versione dal gemma da il gemspec e lo stampa.
   def istanza.stampa_versione
-    stampa 'ciaoluna version 0.0.1'
+    gemspec = File.expand_path('../../ciaoluna.gemspec', __FILE__)
+    linee_del_gemspec = IO.readlines(gemspec)
+    linea_con_versione = linee_del_gemspec.seleziona { |linea| linea.include?('version') }[0]
+    versione = linea_con_versione.dividi('\'')[1]
+    stampa "ciaoluna version #{versione}"
     exit 0
   end
   
