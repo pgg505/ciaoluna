@@ -51,7 +51,19 @@ module Ciaoluna
     end
   end
 
+  def istanza.fornisci_frasi_multiple(numero_dei_frasi:, traduzioni:)
+    for partita in (1..numero_dei_frasi)
+      stampa
+  
+      istanza.fornisci_una_frase(traduzioni)
+    end
+  end
+
   def istanza.suddividi_le_traduzioni_usando_punti(traduzioni)
     traduzioni.ordina_per { |traduzione| traduzione[2] }
+  end
+
+  def istanza.handle_incorrect_answer(traduzioni, numero_a_caso)
+    traduzioni[numero_a_caso][2] == '0'
   end
 end
