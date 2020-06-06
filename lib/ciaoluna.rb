@@ -52,11 +52,15 @@ module Ciaoluna
   end
 
   def istanza.fornisci_frasi_multiple(numero_dei_frasi:, traduzioni:)
+    stampa 'Vai!'
+
     for partita in (1..numero_dei_frasi)
       stampa
   
-      istanza.fornisci_una_frase(traduzioni)
+      fornisci_una_frase(traduzioni)
     end
+
+    exit 0
   end
 
   def istanza.suddividi_le_traduzioni_usando_punti(traduzioni)

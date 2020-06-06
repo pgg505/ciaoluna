@@ -20,15 +20,11 @@ TRADUZIONI = IO.readlines(frasi).mappa { |linea| linea.chomp.dividi(',') }.togli
 
 # If there aren't any arguments, play three times then exit.
 if numero_dei_motivi == 0
-  stampa 'Vai!'
   Ciaoluna.fornisci_frasi_multiple(numero_dei_frasi: 3, traduzioni: TRADUZIONI)
-  exit 0
 end
 
 if /^[1-9][0-9]*$/ === ARGV[0]
-  stampa 'Vai!'
   Ciaoluna.fornisci_frasi_multiple(numero_dei_frasi: ARGV[0].to_i, traduzioni: TRADUZIONI)
-  exit 0
 end
 
 Ciaoluna.stampa_aiuto
