@@ -53,13 +53,7 @@ module Ciaoluna
 
   def istanza.fornisci_frasi_multiple(numero_dei_frasi:, traduzioni:)
     stampa 'Vai!'
-
-    for partita in (1..numero_dei_frasi)
-      stampa
-  
-      fornisci_una_frase(traduzioni)
-    end
-
+    numero_dei_frasi.volte { |_| stampa; fornisci_una_frase(traduzioni) }
     exit 0
   end
 
